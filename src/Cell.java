@@ -15,6 +15,7 @@ public class Cell
 	private static Image[] colorImages; // these will be filled with the images in the following files.
 	private static String[] filenames = {"BlueChip.png", "GreenChip.png", "PurpleChip.png", "RedChip.png", "YellowChip.png"};
 	private static String[] cellColors = {"Blue","Green","Purple","Red","Yellow"};
+	//TODO get rid of all colors except blue and purple - purple for the wall - blue for the path
 	
 	private int colorID; // which background color should be displayed?
 	private int x,y; // screen coordinates of the top left corner
