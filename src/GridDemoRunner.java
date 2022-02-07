@@ -9,10 +9,7 @@ public class GridDemoRunner
 
 		StartHereFrame practiceApp = new StartHereFrame();
 //		GridDemoFrame app = new GridDemoFrame();
-
-
-		// Evan: Test test
-
+// TEST-REESE
 	}
 
 }
