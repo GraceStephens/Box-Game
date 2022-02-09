@@ -15,18 +15,36 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 	public final static int NUM_COLS = 24;
 	public GridDemoFrame myParent;
 	public int score;
+
+	public int player_x = 4;
+	public int player_y = 4;
 	
 	public GridDemoPanel(GridDemoFrame parent)
 	{
 		super();
 		resetCells();
-		theGrid[2][2].setMarker("A");
-		theGrid[2][2].setDisplayMarker(true);
+
+		for (int ix = 0; ix < 24; ix++)
+		{
+			for (int iy = 0; iy <24; iy++)
+			{
+				theGrid[ix][iy].setMarker("#");
+				theGrid[ix][iy].setDisplayMarker(false);
+			}
+		}
+
+		//theGrid[2][2].setMarker("A");
+		//theGrid[2][2].setDisplayMarker(true);
 		theGrid[3][3].setIsLive(false);
 		setBackground(Color.BLACK);
 		addMouseListener(this);
-		//parent.addKeyListener(this); // activate this if you wish to listen to the keyboard. 
+		parent.addKeyListener(this); // activate this if you wish to listen to the keyboard.
 		myParent = parent;
+
+		theGrid[4][4].setMarker("#");
+		theGrid[4][4].setDisplayMarker(true);
+
+
 	}	
 	
 	/**
@@ -66,6 +84,33 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 		theGrid[row][col].cycleColorIDForward();
 		repaint();
 		
+	}
+
+	public void playerLeaves(int row, int col)
+	{
+		theGrid[row][col].setDisplayMarker(false);
+	}
+	public void playerArrives(int row, int col)
+	{
+		theGrid[row][col].setDisplayMarker(true);
+	}
+
+	public void userPressedKey(KeyEvent e)
+	{
+		char w = 'w';
+		char a = 'a';
+		char s = 's';
+		char d = 'd';
+
+		if (e.getKeyChar() == w)
+		{
+			playerLeaves(player_y, player_x);
+			playerArrives(player_y-1, player_x);
+			player_y -= 1;
+			repaint();
+		}
+
+
 	}
 	
 	
@@ -156,7 +201,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 	public void keyReleased(KeyEvent e)
 	{
 		// TODO Auto-generated method stub
-		
+		userPressedKey(e);
 	}
 	// ============================= animation stuff ======================================
 	/**
