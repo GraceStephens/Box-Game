@@ -13,8 +13,8 @@ public class Cell
 	public static final int CELL_SIZE = 25;
 	private static Font cellFont = new Font("Times New Roman",Font.BOLD,CELL_SIZE*3/4);
 	private static Image[] colorImages; // these will be filled with the images in the following files.
-	private static String[] filenames = {"BlueChip.png", "GreenChip.png", "PurpleChip.png", "RedChip.png", "YellowChip.png"};
-	private static String[] cellColors = {"Blue","Green","Purple","Red","Yellow"};
+	private static String[] filenames = {"WhiteChip.png","BlueChip.png", "GreenChip.png", "PurpleChip.png", "RedChip.png", "YellowChip.png"};
+	private static String[] cellColors = {"White","Blue","Green","Purple","Red","Yellow"};
 	
 	private int colorID; // which background color should be displayed?
 	private int x,y; // screen coordinates of the top left corner
@@ -49,7 +49,7 @@ public class Cell
 	
 	public Cell(int inRow, int inCol)
 	{
-		this((int)(Math.random()*filenames.length));
+		this((int)(Math.random()*1));
 		y = inRow*CELL_SIZE;
 		x = inCol*CELL_SIZE;
 	}
@@ -142,7 +142,8 @@ public class Cell
 			return;
 		Graphics2D g2 = (Graphics2D)g;
 		g2.drawImage(colorImages[colorID], x,y, CELL_SIZE-2, CELL_SIZE-2, null);
-		   
+
+		/*
 		g2.setColor(new Color(192,192,192));
 		g2.setStroke(new BasicStroke(3));
 		g2.drawRoundRect(x+1, y+1, CELL_SIZE-4, CELL_SIZE-4, 8, 8);
@@ -150,7 +151,7 @@ public class Cell
 		g2.setColor(new Color(64,64,64));
 		g2.setStroke(new BasicStroke(2));
 		g2.drawRoundRect(x+1, y+1, CELL_SIZE-4, CELL_SIZE-4, 8, 8);
-		   
+		  */
 		if (displayMarker)
 		{
 			g2.setFont(cellFont);
@@ -160,6 +161,7 @@ public class Cell
 			g2.setColor(Color.BLACK);
 			g2.drawString(marker, x+CELL_SIZE/2-7, y+CELL_SIZE/2+6);
 		}
+
 	
 	}
 // ===================================  OVERRIDDEN OBJECT METHODS ==============================
