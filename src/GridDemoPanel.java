@@ -60,7 +60,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 				theGrid[r][c] = new Cell(r,c);
 		score = 0;
 	}
-	
+	//
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
