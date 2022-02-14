@@ -187,6 +187,10 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			{23, 20}};;
 
 
+	private static int [][] action_squares = {{7, 6}, {9, 4}, {7, 2}, {21, 1}};		// Action squares
+	private static int [][] reaction_squares = {{11, 1},{8, 16},{20, 1},{16, 8}};	// Reaction Squares
+
+
 	public int player_x = 1;
 	public int player_y = 1;
 
@@ -216,6 +220,14 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 		theGrid[player_y][player_x].setMarker("#");
 		theGrid[player_y][player_x].setDisplayMarker(true);
+
+//		if (player_y == theGrid[13][8].getY())
+//		{
+//			if (player_x == theGrid[13][8].getX())
+//			{
+//				theGrid[12][8].setColorID(2);
+//			}
+//		}
 
 
 	}	
@@ -295,10 +307,35 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 	public void playerLeaves(int row, int col)			// deletes marker when user wants player to leave cell
 	{
 		theGrid[row][col].setDisplayMarker(false);
+
 	}
 	public void playerArrives(int row, int col)			// makes marker when user wants to enter cell
 	{
 		theGrid[row][col].setDisplayMarker(true);
+
+//		for (int r = 0; r<action_squares.length; r++)
+//		{
+//			if (row == action_squares[r][0])
+//			{
+//				if (col == action_squares[r][1])
+//				{
+//					theGrid[reaction_squares[r][0]][reaction_squares[r][1]].setColorID(0);
+//					//theGrid[reaction_squares[r][0]][reaction_squares[r][1]].drawSelf(getGraphics());
+//
+//				}
+//			}
+//		}
+
+
+//		if (theGrid[row][col].getX() == 13)
+//		{
+//			if (theGrid[row][col].getY() == 8)
+//			{
+//				theGrid[12][8].setColorID(2);
+//			}
+//
+//		}
+//		System.out.println(row + " , " + col);
 	}
 
 	public void userPressedKey(KeyEvent e)			// Player movement
@@ -346,6 +383,22 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					player_x += 1;
 				}
 			}
+
+
+		for (int r = 0; r<action_squares.length; r++)
+		{
+			if (player_y == action_squares[r][0])
+			{
+				if (player_x == action_squares[r][1])
+				{
+					theGrid[reaction_squares[r][0]][reaction_squares[r][1]].setColorID(2);
+				}
+			}
+		}
+
+
+
+
 			repaint();
 	}
 
