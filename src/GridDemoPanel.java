@@ -310,7 +310,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 			if (e.getKeyChar() == w)
 			{
-				if (theGrid[player_y-1][player_x].getColorID() == 2)
+				if (theGrid[player_y-1][player_x].getColorID() == 1)
 				{
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y - 1, player_x);
@@ -320,7 +320,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 			if (e.getKeyChar() == a)
 			{
-				if (theGrid[player_y][player_x-1].getColorID() == 2)
+				if (theGrid[player_y][player_x-1].getColorID() == 1)
 				{
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y, player_x - 1);
@@ -330,7 +330,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 			if (e.getKeyChar() == s)
 			{
-				if (theGrid[player_y+1][player_x].getColorID() == 2)
+				if (theGrid[player_y+1][player_x].getColorID() == 1)
 				{
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y + 1, player_x);
@@ -339,7 +339,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			}
 			if (e.getKeyChar() == d)
 			{
-				if (theGrid[player_y][player_x+1].getColorID() == 2)
+				if (theGrid[player_y][player_x+1].getColorID() == 1)
 				{
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y, player_x + 1);
