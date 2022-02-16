@@ -297,8 +297,8 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			{18, 7}};
 
 
-	//private static int [][] action_squares = {{7, 6}, {9, 4}, {7, 2}, {21, 1}};		// Action squares
-	//private static int [][] reaction_squares = {{11, 1},{8, 16},{20, 1},{16, 8}};	// Reaction Squares
+	private static int [][] action_squares = {{7, 6}, {9, 4}, {7, 2}, {21, 1}};		// Action squares
+	private static int [][] reaction_squares = {{11, 1},{8, 16},{20, 1},{16, 8}};	// Reaction Squares
 
 
 	public int player_x = 1;
@@ -315,7 +315,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 		{
 			for (int iy = 0; iy <24; iy++)
 			{
-				theGrid[ix][iy].setMarker("#");
+				theGrid[ix][iy].setMarker();
 				theGrid[ix][iy].setDisplayMarker(false);
 			}
 		}
@@ -494,17 +494,20 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 				}
 			}
 
+		Cell player_cell = new Cell(player_y, player_x);
+		for (int r = 0; r<action_squares.length; r++)
+		{
+			if (player_cell.getY() == action_squares[r][0])
+			{
+				if (player_cell.getX() == action_squares[r][1])
+				{
+					theGrid[reaction_squares[r][0]][reaction_squares[r][1]].setColorID(0);
+				}
+			}
+		}
 
-//		for (int r = 0; r<action_squares.length; r++)
-//		{
-//			if (player_y == action_squares[r][0])
-//			{
-//				if (player_x == action_squares[r][1])
-//				{
-//					theGrid[reaction_squares[r][0]][reaction_squares[r][1]].setColorID(2);
-//				}
-//			}
-//		}
+
+
 
 
 
