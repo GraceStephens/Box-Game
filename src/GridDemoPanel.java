@@ -298,7 +298,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			}
 		if (maze == 1)
 		{
-			System.out.println("door test");
+			//System.out.println("door test");
 			for (int r = 0; r<maze_one_doors.length; r++)
 			{
 				if (player_y == maze_one_doors[r][0])
