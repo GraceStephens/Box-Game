@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.image.ImageObserver;
 
 import javax.swing.ImageIcon;
 
@@ -24,7 +25,7 @@ public class Cell
 	private String marker; // optional character (typically a letter or number) to show on this cell
 	private boolean displayMarker; // whether to show the cell label or not.
 	private boolean isLive; // whether the cell should appear at all.
-	
+
 	//=====================  CONSTRUCTORS =============================
 	public Cell()
 	{
@@ -156,12 +157,15 @@ public class Cell
 		  */
 		if (displayMarker)
 		{
-			g2.setFont(cellFont);
-			g2.setColor(Color.WHITE);
-			g2.drawString(marker, x+CELL_SIZE/2-6, y+CELL_SIZE/2+7);  //You'll likely want to tinker with these numbers.
-			   
-			g2.setColor(Color.BLACK);
-			g2.drawString(marker, x+CELL_SIZE/2-7, y+CELL_SIZE/2+6);
+			//
+ g2.drawImage(colorImages[3], x, y, CELL_SIZE-2, CELL_SIZE-2,null);
+//			g2.dra
+//			g2.setFont(cellFont);
+//			g2.setColor(Color.WHITE);
+//			g2.drawString(marker, x+CELL_SIZE/2-6, y+CELL_SIZE/2+7);  //You'll likely want to tinker with these numbers.
+//
+//			g2.setColor(Color.BLACK);
+//			g2.drawString(marker, x+CELL_SIZE/2-7, y+CELL_SIZE/2+6);
 		}
 	
 	}
