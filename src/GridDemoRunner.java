@@ -4,7 +4,8 @@ public class GridDemoRunner
 	public static void main(String[] args)
 	{
 		//goals:
-		//TODO make a 2 phase maze
+		//TODO find a new player icon
+		//TODO institute ^
 		//features:
 		//TODO triggers, "lights off" effect, coins, step tracker
 
@@ -14,10 +15,9 @@ public class GridDemoRunner
 //		StartHereFrame practiceApp = new StartHereFrame{};
 	GridDemoFrame app = new GridDemoFrame();
 
-
-		// Evan: Test test
+	}// Evan: Test test
 
 	}
 
-}
+
 
