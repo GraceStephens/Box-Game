@@ -14,7 +14,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 	public final static int NUM_ROWS = 24;
 	public final static int NUM_COLS = 24;
 	public GridDemoFrame myParent;
-	public int score;
+	public int score, maze;
 
 	private static int[][] mazeOne = {{11, 1}, {11, 9}, {11, 8},{12, 8}, {13, 8}, {14, 8}, {15, 8}, {16, 8}, {17, 8}, {18, 8}, {19, 8}, {20, 8}, {21, 8}, {22, 8}, {22, 7}, {22, 6}, {22, 5}, {22, 4}, {22, 3}, {22, 2}, {22, 0},
 			{21, 1},{20, 1}, {19, 1}, {18, 1}, {17, 1}, {17, 2}, {17, 3}, {18, 3}, {19, 3}, {19, 4}, {19, 5}, {19, 6}, {18, 6}, {17, 6}, {16, 6}, {15, 6}, {14, 6}, {12, 6}, {12, 6}, {13, 6}, {12, 6}, {12, 6}, {12, 6}, {12, 6}, {11, 6}, {10, 6},
@@ -297,8 +297,8 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			{18, 7}};
 
 
-	private static int [][] action_squares = {{7, 6}, {9, 4}, {7, 2}, {21, 1}};		// Action squares
-	private static int [][] reaction_squares = {{11, 1},{8, 16},{20, 1},{16, 8}};	// Reaction Squares
+	private static int [][] maze_one_doors = {{7, 6}, {9, 4}, {7, 2}, {21, 1}};		// Action squares
+	private static int [][] maze_two_doors = {{11, 1},{8, 16},{20, 1},{16, 8}};	// Reaction Squares
 
 
 	public int player_x = 1;
@@ -315,10 +315,12 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 		{
 			for (int iy = 0; iy <24; iy++)
 			{
-				theGrid[ix][iy].setMarker();
+				theGrid[ix][iy].setMarker("#");
 				theGrid[ix][iy].setDisplayMarker(false);
 			}
 		}
+
+
 
 		//theGrid[2][2].setMarker("A");
 		//theGrid[2][2].setDisplayMarker(true);
@@ -327,6 +329,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 		addMouseListener(this);
 		parent.addKeyListener(this); // activate this if you wish to listen to the keyboard.
 		myParent = parent;
+		maze = 2;
 
 		theGrid[player_y][player_x].setMarker("#");
 		theGrid[player_y][player_x].setDisplayMarker(true);
@@ -366,7 +369,10 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 				theGrid[r][c].drawSelf(g);
 			}
 
-		for (int r = 0; r< mazeTwo.length; r++){// sets path to white
+		if (maze == 2)
+		{
+			for (int r = 0; r< mazeTwo.length; r++)
+			{// sets path to white
 //			System.out.println("spot"+mazeTwo[r][0]+","+mazeTwo[r][1]);
 				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].setColorID(1);
 				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].drawSelf(g);
@@ -374,6 +380,16 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].setColorID(1);
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].drawSelf(g);
 			}
+		}
+		if (maze == 1)
+		{
+			for (int r = 0; r< mazeOne.length; r++)
+			{// sets path to white
+//			System.out.println("spot"+mazeTwo[r][0]+","+mazeTwo[r][1]);
+				theGrid[mazeOne[r][0]][mazeOne[r][1]].setColorID(1);
+				theGrid[mazeOne[r][0]][mazeOne[r][1]].drawSelf(g);
+			}
+		}
 
 //		for (int r = 1; r<NUM_ROWS; r=r+4)		// sets every 4 rows to be purple
 //			for (int c = 1; c<NUM_COLS; c++)
@@ -493,18 +509,37 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					player_x += 1;
 				}
 			}
-
-		Cell player_cell = new Cell(player_y, player_x);
-		for (int r = 0; r<action_squares.length; r++)
+		if (maze == 1)
 		{
-			if (player_cell.getY() == action_squares[r][0])
+			for (int r = 0; r<maze_one_doors.length; r++)
 			{
-				if (player_cell.getX() == action_squares[r][1])
+				if (player_y == maze_one_doors[r][0])
 				{
-					theGrid[reaction_squares[r][0]][reaction_squares[r][1]].setColorID(0);
+					if (player_x == maze_one_doors[r][1])
+					{
+						maze = 2;
+						playerArrives(maze_two_doors[r][0],maze_two_doors[r][1]);
+						System.out.println("test worked");
+					}
 				}
 			}
 		}
+		if (maze == 2)
+		{
+			for (int r = 0; r<maze_two_doors.length; r++)
+			{
+				if (player_y == maze_two_doors[r][0])
+				{
+					if (player_x == maze_two_doors[r][1])
+					{
+						maze = 1;
+						playerArrives(maze_one_doors[r][0], maze_one_doors[r][1]);
+						System.out.println("test worked");
+					}
+				}
+			}
+		}
+
 
 
 
