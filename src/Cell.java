@@ -145,7 +145,7 @@ public class Cell
 			return;
 		Graphics2D g2 = (Graphics2D)g;
 		g2.drawImage(colorImages[colorID], x,y, CELL_SIZE-2, CELL_SIZE-2, null);
-		   
+		/*
 		g2.setColor(new Color(192,192,192));
 		g2.setStroke(new BasicStroke(3));
 		g2.drawRoundRect(x+1, y+1, CELL_SIZE-4, CELL_SIZE-4, 8, 8);
@@ -153,7 +153,7 @@ public class Cell
 		g2.setColor(new Color(64,64,64));
 		g2.setStroke(new BasicStroke(2));
 		g2.drawRoundRect(x+1, y+1, CELL_SIZE-4, CELL_SIZE-4, 8, 8);
-		   
+		  */
 		if (displayMarker)
 		{
 			g2.setFont(cellFont);
