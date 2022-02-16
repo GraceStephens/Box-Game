@@ -4,9 +4,11 @@ public class GridDemoRunner
 	public static void main(String[] args)
 	{
 		//goals:
-		//TODO find a new player icon
-		//TODO institute ^
-		//features:
+		//TODO -change player pic
+		//TODO-get game to switch between mazes
+		//TODO-add the ending square
+		//	-get it to recognize if player gets to it
+		//	-get it switch maze to good job, you won!
 		//TODO triggers, "lights off" effect, coins, step tracker
 
 		// by default, we're using the StartHereFrame so you can get used to the Cell class;
