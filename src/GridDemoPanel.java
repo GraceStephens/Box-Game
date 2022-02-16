@@ -380,6 +380,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].setColorID(1);
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].drawSelf(g);
 			}
+			System.out.println("printed maze 2");
 		}
 		if (maze == 1)
 		{
@@ -388,7 +389,9 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 //			System.out.println("spot"+mazeTwo[r][0]+","+mazeTwo[r][1]);
 				theGrid[mazeOne[r][0]][mazeOne[r][1]].setColorID(1);
 				theGrid[mazeOne[r][0]][mazeOne[r][1]].drawSelf(g);
+
 			}
+			System.out.println("printed maze 1");
 		}
 
 //		for (int r = 1; r<NUM_ROWS; r=r+4)		// sets every 4 rows to be purple
@@ -511,6 +514,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			}
 		if (maze == 1)
 		{
+			System.out.println("door test");
 			for (int r = 0; r<maze_one_doors.length; r++)
 			{
 				if (player_y == maze_one_doors[r][0])
@@ -526,15 +530,18 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 		}
 		if (maze == 2)
 		{
+			//System.out.println("door test");
 			for (int r = 0; r<maze_two_doors.length; r++)
 			{
+				//System.out.println("door test: "+2);
 				if (player_y == maze_two_doors[r][0])
 				{
+					//System.out.println("door y test \t" + player_y);
 					if (player_x == maze_two_doors[r][1])
 					{
 						maze = 1;
 						playerArrives(maze_one_doors[r][0], maze_one_doors[r][1]);
-						System.out.println("test worked");
+						//System.out.println("test worked\t" + player_x + ",\t" +player_y);
 					}
 				}
 			}
