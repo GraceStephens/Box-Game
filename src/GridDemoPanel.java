@@ -365,7 +365,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 				theGrid[r][c].setColorID(2);
 				theGrid[r][c].drawSelf(g);
 			}
-//TODO GET THIS TO WORK
+
 		for (int r = 0; r< mazeTwo.length; r++){// sets path to white
 //			System.out.println("spot"+mazeTwo[r][0]+","+mazeTwo[r][1]);
 				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].setColorID(1);
