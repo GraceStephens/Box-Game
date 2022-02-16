@@ -13,7 +13,7 @@ public class Cell
 	public static final int CELL_SIZE = 25;
 	private static Font cellFont = new Font("Times New Roman",Font.BOLD,CELL_SIZE*3/4);
 	private static Image[] colorImages; // these will be filled with the images in the following files.
-	private static String[] filenames = {"BlueChip.png",  "WhiteChip.png", "BlackChip.png"};
+	private static String[] filenames = {"BlueChip.png",  "WhiteChip.png", "BlackChip.png", "player.png"};
 	private static String[] cellColors = {"Blue","White","Black"};
 
 
