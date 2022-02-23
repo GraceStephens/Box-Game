@@ -306,6 +306,9 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					if (player_x == maze_one_doors[r][1])
 					{
 						maze = 2;
+						playerLeaves(player_y, player_x);
+						player_y = maze_two_doors[r][0];
+						player_x = maze_two_doors[r][1];
 						playerArrives(maze_two_doors[r][0],maze_two_doors[r][1]);
 						//System.out.println("test worked");
 					}
@@ -324,6 +327,9 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					if (player_x == maze_two_doors[r][1])
 					{
 						maze = 1;
+						playerLeaves(player_y, player_x);
+						player_y = maze_one_doors[r][0];
+						player_x = maze_one_doors[r][1];
 						playerArrives(maze_one_doors[r][0], maze_one_doors[r][1]);
 						//System.out.println("test worked\t" + player_x + ",\t" +player_y);
 					}
