@@ -156,7 +156,23 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			for (int r = 0; r< mazeTwo.length; r++){// sets path to white
 //			System.out.println("spot"+mazeTwo[r][0]+","+mazeTwo[r][1]);
 				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].setColorID(1);
-				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].drawSelf(g);
+//				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].drawSelf(g);
+				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].setIsLive(false);
+
+				theGrid[player_y][player_x].setIsLive(true);
+
+				theGrid[player_y-1][player_x-1].setIsLive(true);
+				theGrid[player_y-1][player_x].setIsLive(true);
+				theGrid[player_y-1][player_x+1].setIsLive(true);
+
+				theGrid[player_y][player_x-1].setIsLive(true);
+				theGrid[player_y][player_x+1].setIsLive(true);
+
+				theGrid[player_y+1][player_x-1].setIsLive(true);
+				theGrid[player_y+1][player_x].setIsLive(true);
+				theGrid[player_y+1][player_x+1].setIsLive(true);
+
+
 
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].setColorID(1);
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].drawSelf(g);
@@ -168,7 +184,23 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			for (int r = 0; r< mazeOne.length; r++){// sets path to white
 //			System.out.println("spot"+mazeTwo[r][0]+","+mazeTwo[r][1]);
 				theGrid[mazeOne[r][0]][mazeOne[r][1]].setColorID(1);
-				theGrid[mazeOne[r][0]][mazeOne[r][1]].drawSelf(g);
+//				theGrid[mazeOne[r][0]][mazeOne[r][1]].drawSelf(g);
+				theGrid[mazeOne[r][0]][mazeOne[r][1]].setIsLive(false);
+
+				theGrid[player_y][player_x].setIsLive(true);
+
+				theGrid[player_y-1][player_x-1].setIsLive(true);
+				theGrid[player_y-1][player_x].setIsLive(true);
+				theGrid[player_y-1][player_x+1].setIsLive(true);
+
+				theGrid[player_y][player_x-1].setIsLive(true);
+				theGrid[player_y][player_x+1].setIsLive(true);
+
+				theGrid[player_y+1][player_x-1].setIsLive(true);
+				theGrid[player_y+1][player_x].setIsLive(true);
+				theGrid[player_y+1][player_x+1].setIsLive(true);
+
+
 
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].setColorID(1);
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].drawSelf(g);
@@ -221,10 +253,37 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 	{
 		theGrid[row][col].setDisplayMarker(false);
 
+		theGrid[row-1][col-1].setIsLive(false);
+		theGrid[row-1][col].setIsLive(false);
+		theGrid[row-1][col+1].setIsLive(false);
+
+		theGrid[row][col-1].setIsLive(false);
+		theGrid[row][col+1].setIsLive(false);
+
+		theGrid[row+1][col-1].setIsLive(false);
+		theGrid[row+1][col].setIsLive(false);
+		theGrid[row+1][col+1].setIsLive(false);
+
+
 	}
 	public void playerArrives(int row, int col)			// makes marker when user wants to enter cell
 	{
 		theGrid[row][col].setDisplayMarker(true);
+
+
+		theGrid[row-1][col-1].setIsLive(true);
+		theGrid[row-1][col].setIsLive(true);
+		theGrid[row-1][col+1].setIsLive(true);
+
+		theGrid[row][col-1].setIsLive(true);
+		theGrid[row][col+1].setIsLive(true);
+
+		theGrid[row+1][col-1].setIsLive(true);
+		theGrid[row+1][col].setIsLive(true);
+		theGrid[row+1][col+1].setIsLive(true);
+
+		theGrid[row][col].setIsLive(true);
+
 
 //		for (int r = 0; r<action_squares.length; r++)
 //		{
