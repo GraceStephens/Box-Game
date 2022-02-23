@@ -78,7 +78,6 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			{16, 6}, {15, 6}, {16, 6}, {16, 7}, {16, 7}, {2, 12}, {3, 12}, {8, 5}, {7, 5}, {6, 5},
 			{6, 6}, {3, 15}, {3, 15}, {3, 16}, {17, 7}, {18, 7}};
 
-
 	private static int [][] maze_one_doors = {{1, 0}, {10, 0}, {13, 0}, {18, 23},{1, 23}};		// Action squares (last one is the end goal)
 	private static int [][] maze_two_doors = {{16, 0},{18, 0},{23, 20},{16, 23},{0, 17}};//,{5, 0},{0, 4}};	// Reaction Squares
 
@@ -158,6 +157,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].setColorID(1);
 				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].drawSelf(g);
 
+
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].setColorID(1);
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].drawSelf(g);
 			}
@@ -221,10 +221,35 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 	{
 		theGrid[row][col].setDisplayMarker(false);
 
+		theGrid[row-1][col-1].setIsLive(false);
+		theGrid[row-1][col].setIsLive(false);
+		theGrid[row-1][col+1].setIsLive(false);
+
+		theGrid[row][col-1].setIsLive(false);
+		theGrid[row+1][col-1].setIsLive(false);
+
+		theGrid[row+1][col-1].setIsLive(false);
+		theGrid[row+1][col].setIsLive(false);
+		theGrid[row+1][col+1].setIsLive(false);
+
 	}
 	public void playerArrives(int row, int col)			// makes marker when user wants to enter cell
 	{
 		theGrid[row][col].setDisplayMarker(true);
+
+
+		theGrid[row-1][col-1].setIsLive(true);
+		theGrid[row-1][col].setIsLive(true);
+		theGrid[row-1][col+1].setIsLive(true);
+
+		theGrid[row][col-1].setIsLive(true);
+		theGrid[row+1][col-1].setIsLive(true);
+
+		theGrid[row+1][col-1].setIsLive(true);
+		theGrid[row+1][col].setIsLive(true);
+		theGrid[row+1][col+1].setIsLive(true);
+
+		theGrid[row][col].setIsLive(true);
 
 //		for (int r = 0; r<action_squares.length; r++)
 //		{
