@@ -16,7 +16,7 @@ public class GridDemoFrame extends JFrame
 		
 		this.getContentPane().setLayout(new BorderLayout());
 		thePanel = new GridDemoPanel(this);
-		scoreLabel = new JLabel("Score: 0");
+		scoreLabel = new JLabel("Steps: 0");
 		messageLabel = new JLabel("");
 		Box southPanel = Box.createHorizontalBox();
 		
