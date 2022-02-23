@@ -18,7 +18,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 	private static int[][] mazeOne = {{11, 9}, {11, 8},{12, 8}, {13, 8}, {14, 8}, {15, 8},
 			{16, 8}, {17, 8}, {18, 8}, {19, 8}, {20, 8}, {21, 8}, {22, 8}, {22, 7}, {22, 6},
-			{22, 5}, {22, 4}, {22, 3}, {22, 2}, {22, 0}, {17, 2},{19, 3},
+			{22, 5}, {22, 4}, {22, 3}, {22, 2}, {17, 2},{19, 3},
 			{19, 4}, {19, 5}, {19, 6}, {18, 6}, {17, 6}, {16, 6}, {15, 6}, {14, 6}, {12, 6},
 			{12, 6}, {13, 6}, {12, 6}, {12, 6}, {12, 6}, {12, 6}, {11, 6}, {10, 6},
 			{9, 6},{8, 6},{7, 6},{6, 6},{5, 6},{4, 6},{4, 5},{4, 4},{5, 4},{6, 4},{7, 4},
@@ -150,7 +150,11 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 				theGrid[r][c].setColorID(2);
 				theGrid[r][c].drawSelf(g);
 			}
-
+		if (maze == 3)
+		{
+//			g.drawString("You won!",12,12);
+			//TODO: ADD AN ENDING SCREEN
+		}
 		if (maze == 2)
 		{
 			for (int r = 0; r< mazeTwo.length; r++){// sets path to white
@@ -296,6 +300,12 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					player_x += 1;
 				}
 			}
+						if (player_y == 12 && player_x == 13)
+					{
+						maze = 3;
+						playerLeaves(player_y, player_x);
+						//System.out.println("test worked");
+					}
 		if (maze == 1)
 		{
 			//System.out.println("door test");
