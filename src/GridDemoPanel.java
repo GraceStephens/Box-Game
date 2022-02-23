@@ -125,7 +125,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 //		}
 
 
-	}	
+	}
 	
 	/**
 	 * makes a new board with random colors, completely filled in, and resets the score to zero.
@@ -161,7 +161,6 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 //			System.out.println("spot"+mazeTwo[r][0]+","+mazeTwo[r][1]);
 				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].setColorID(1);
 				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].drawSelf(g);
-
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].setColorID(1);
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].drawSelf(g);
 			}
@@ -172,7 +171,8 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			for (int r = 0; r< mazeOne.length; r++){// sets path to white
 //			System.out.println("spot"+mazeTwo[r][0]+","+mazeTwo[r][1]);
 				theGrid[mazeOne[r][0]][mazeOne[r][1]].setColorID(1);
-				theGrid[mazeOne[r][0]][mazeOne[r][1]].drawSelf(g);
+		//		theGrid[mazeOne[r][0]][mazeOne[r][1]].drawSelf(g);
+				theGrid[mazeTwo[r][0]][mazeTwo[r][1]].setIsLive(false);
 
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].setColorID(1);
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].drawSelf(g);
@@ -182,24 +182,6 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 
 
-//		for (int r = 1; r<NUM_ROWS; r=r+4)		// sets every 4 rows to be purple
-//			for (int c = 1; c<NUM_COLS; c++)
-//			{
-//				theGrid[r][c].setColorID(2);
-//				theGrid[r][c].drawSelf(g);
-//			}
-//		for (int r = 1; r<NUM_ROWS; r++)		// sets every 4 columns to be purple
-//			for (int c = 1; c<NUM_COLS; c=c+4)
-//			{
-//				theGrid[r][c].setColorID(2);
-//				theGrid[r][c].drawSelf(g);
-//			}
-
-
-
-//		for (int r =0; r<NUM_ROWS; r++)
-//			for (int c=0; c<NUM_COLS; c++)
-//				theGrid[r][c].drawSelf(g);
 	}
 	
 	/**
