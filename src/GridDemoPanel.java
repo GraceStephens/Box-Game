@@ -44,10 +44,10 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			{21, 12}, {21, 13}, {21, 14}, {22, 14}, {22, 15}, {22, 16}, {21, 16}, {20, 16},
 			{20, 17}, {20, 18}, {21, 18}, {22, 18}, {22, 19}, {22, 20}, {21, 20}, {20, 20},
 			{19, 20}, {18, 20}, {18, 19}, {18, 18}, {18, 17}, {18, 16}, {18, 15}, {18, 14},
-			{18, 21}, {18, 22}, {18, 23},
+			{18, 21}, {18, 22}, {18, 23},{18, 1}, {5, 1},{16, 1},
 
 			{13, 13} };
-	private static int[][] mazeTwo = {{14, 14}, {15, 14}, {16, 14},	{17, 14}, {17, 15},
+	private static int[][] mazeTwo = {{14, 14}, {18, 22},{15, 14}, {16, 14},	{17, 14}, {17, 15},
 			{17, 16}, {18, 16}, {19, 16}, {19, 17}, {20, 18}, {19, 18}, {21, 18}, {22, 18},
 			{22, 16}, {22, 17}, {22, 15}, {22, 14}, {22, 13}, {22, 12}, {22, 11}, {22, 10},
 			{22, 9}, {22, 7}, {22, 8}, {21, 7}, {20, 7}, {20, 6}, {18, 0}, {16, 0}, {19, 6},
@@ -79,7 +79,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			{6, 6}, {3, 15}, {3, 15}, {3, 16}, {17, 7}, {18, 7}};
 
 
-	private static int [][] maze_one_doors = {{7, 6}, {9, 4}, {7, 2}, {21, 1},{12, 13}};		// Action squares (last one is the end goal)
+	private static int [][] maze_one_doors = {{1, 0}, {10, 0}, {13, 0}, {18, 23},{1, 23}, {12, 13}};		// Action squares (last one is the end goal)
 	private static int [][] maze_two_doors = {{16, 0},{18, 0},{23, 20},{16, 23},{0, 17},{5, 0},{0, 4}};	// Reaction Squares
 
 
