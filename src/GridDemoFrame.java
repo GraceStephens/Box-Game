@@ -41,7 +41,7 @@ public class GridDemoFrame extends JFrame
 	
 	public void updateScore(int score)
 	{
-		scoreLabel.setText("Score: "+score);
+		scoreLabel.setText("Steps: "+score);
 		scoreLabel.repaint();
 	}
 }

@@ -344,7 +344,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 
 
-
+		score += 1;
 		myParent.updateScore(score);
 			repaint();
 	}
