@@ -79,8 +79,8 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			{6, 6}, {3, 15}, {3, 15}, {3, 16}, {17, 7}, {18, 7}};
 
 
-	private static int [][] maze_one_doors = {{1, 0}, {10, 0}, {13, 0}, {18, 23},{1, 23}, {12, 13}};		// Action squares (last one is the end goal)
-	private static int [][] maze_two_doors = {{16, 0},{18, 0},{23, 20},{16, 23},{0, 17},{5, 0},{0, 4}};	// Reaction Squares
+	private static int [][] maze_one_doors = {{1, 0}, {10, 0}, {13, 0}, {18, 23},{1, 23}};		// Action squares (last one is the end goal)
+	private static int [][] maze_two_doors = {{16, 0},{18, 0},{23, 20},{16, 23},{0, 17}};//,{5, 0},{0, 4}};	// Reaction Squares
 
 
 	public int player_x = 10;
@@ -111,7 +111,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 		addMouseListener(this);
 		parent.addKeyListener(this); // activate this if you wish to listen to the keyboard.
 		myParent = parent;
-		maze = 2;
+		maze = 1;
 
 		theGrid[player_y][player_x].setMarker("#");
 		theGrid[player_y][player_x].setDisplayMarker(true);
@@ -311,6 +311,10 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 						player_x = maze_two_doors[r][1];
 						playerArrives(maze_two_doors[r][0],maze_two_doors[r][1]);
 						//System.out.println("test worked");
+						//System.out.println("test worked\t" + player_x + ",\t" +player_y + ",\t" + maze);
+
+						repaint();
+						return;
 					}
 				}
 			}
@@ -331,7 +335,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 						player_y = maze_one_doors[r][0];
 						player_x = maze_one_doors[r][1];
 						playerArrives(maze_one_doors[r][0], maze_one_doors[r][1]);
-						//System.out.println("test worked\t" + player_x + ",\t" +player_y);
+						//System.out.println("test worked\t" + player_x + ",\t" +player_y + ",\t" + maze);
 					}
 				}
 			}
@@ -341,7 +345,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 
 
-
+		myParent.updateScore(score);
 			repaint();
 	}
 
