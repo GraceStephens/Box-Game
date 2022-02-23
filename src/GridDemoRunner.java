@@ -3,9 +3,7 @@ public class GridDemoRunner
 
 	public static void main(String[] args)
 	{
-		//goals:
-		//TODO -change player pic
-		//TODO-get game to switch between mazes
+		//goals
 		//TODO-add the ending square
 		//	-get it to recognize if player gets to it
 		//	-get it switch maze to good job, you won!
