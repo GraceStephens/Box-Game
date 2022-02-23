@@ -79,8 +79,8 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			{6, 6}, {3, 15}, {3, 15}, {3, 16}, {17, 7}, {18, 7}};
 
 
-	private static int [][] maze_one_doors = {{7, 6}, {9, 4}, {7, 2}, {21, 1}};		// Action squares
-	private static int [][] maze_two_doors = {{11, 1},{8, 16},{20, 1},{16, 8}};	// Reaction Squares
+	private static int [][] maze_one_doors = {{7, 6}, {9, 4}, {7, 2}, {21, 1},{12, 13}};		// Action squares (last one is the end goal)
+	private static int [][] maze_two_doors = {{16, 0},{18, 0},{23, 20},{16, 23},{0, 17},{5, 0},{0, 4}};	// Reaction Squares
 
 
 	public int player_x = 10;
