@@ -309,6 +309,17 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 //				theGrid[mazeOne[r][0]][mazeOne[r][1]].drawSelf(g);
 //				theGrid[mazeOne[r][0]][mazeOne[r][1]].setIsLive(false);
 			}
+				theGrid[11][12].setColorID(0);
+				theGrid[11][13].setColorID(0);
+				theGrid[11][14].setColorID(0);
+				theGrid[12][12].setColorID(0);
+				theGrid[12][13].setColorID(0);
+				theGrid[12][14].setColorID(0);
+				theGrid[13][12].setColorID(0);
+				theGrid[13][13].setColorID(0);
+				theGrid[13][14].setColorID(0);
+
+
 				theGrid[player_y][player_x].setIsLive(true);
 
 			if (player_x == 0)		// if player X is 0
@@ -573,7 +584,11 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 			if (e.getKeyChar() == w)
 			{
-				if (theGrid[player_y-1][player_x].getColorID() == 1)
+				if (theGrid[player_y-1][player_x].getColorID() == 2)
+				{
+					return;
+				}
+				else
 				{
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y - 1, player_x);
@@ -583,7 +598,11 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 			if (e.getKeyChar() == a)
 			{
-				if (theGrid[player_y][player_x-1].getColorID() == 1)
+				if (theGrid[player_y][player_x-1].getColorID() == 2)
+				{
+					return;
+				}
+				else
 				{
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y, player_x - 1);
@@ -593,7 +612,11 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 			if (e.getKeyChar() == s)
 			{
-				if (theGrid[player_y+1][player_x].getColorID() == 1)
+				if (theGrid[player_y+1][player_x].getColorID() == 2)
+				{
+					return;
+				}
+				else
 				{
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y + 1, player_x);
@@ -602,7 +625,11 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 			}
 			if (e.getKeyChar() == d)
 			{
-				if (theGrid[player_y][player_x+1].getColorID() == 1)
+				if (theGrid[player_y][player_x+1].getColorID() == 2)
+				{
+					return;
+				}
+				else
 				{
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y, player_x + 1);
