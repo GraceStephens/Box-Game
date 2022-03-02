@@ -456,7 +456,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					theGrid[player_y + 1][player_x + 1].drawSelf(g);
 			}
 
-			System.out.println("is this always looping");
+			//System.out.println("is this always looping");
 
 
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].setColorID(1);
@@ -576,6 +576,9 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 	}
 
 	public void userPressedKey(KeyEvent e)			// Player movement
+	// Player moves according to wasd input
+	// Checks to see if player is trying to move onto a black square in which case they do not move
+
 	{
 		char w = 'w';
 		char a = 'a';
