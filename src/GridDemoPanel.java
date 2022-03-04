@@ -296,6 +296,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					theGrid[player_y + 1][player_x + 1].drawSelf(g);
 			}
 
+
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].setColorID(1);
 //			theGrid[mazeOne[0][r]][mazeOne[1][r]].drawSelf(g);
 			//}
@@ -434,6 +435,38 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					theGrid[player_y][player_x+1].drawSelf(g);
 			}
 
+			if (player_x == 0)		// if player Y is 23
+			{
+				theGrid[player_y - 1][player_x].setIsLive(true);
+				theGrid[player_y - 1][player_x].drawSelf(g);
+				theGrid[player_y - 1][player_x + 1].setIsLive(true);
+				theGrid[player_y - 1][player_x + 1].drawSelf(g);
+
+				theGrid[player_y][player_x + 1].setIsLive(true);
+				theGrid[player_y][player_x + 1].drawSelf(g);
+
+				theGrid[player_y + 1][player_x].setIsLive(true);
+				theGrid[player_y + 1][player_x].drawSelf(g);
+				theGrid[player_y + 1][player_x + 1].setIsLive(true);
+				theGrid[player_y + 1][player_x + 1].drawSelf(g);
+			}
+
+			if (player_x == 23)		// if player Y is 23
+			{
+				theGrid[player_y - 1][player_x - 1].setIsLive(true);
+				theGrid[player_y - 1][player_x - 1].drawSelf(g);
+				theGrid[player_y - 1][player_x].setIsLive(true);
+				theGrid[player_y - 1][player_x].drawSelf(g);
+
+				theGrid[player_y][player_x - 1].setIsLive(true);
+				theGrid[player_y][player_x - 1].drawSelf(g);
+
+				theGrid[player_y + 1][player_x - 1].setIsLive(true);
+				theGrid[player_y + 1][player_x - 1].drawSelf(g);
+				theGrid[player_y + 1][player_x].setIsLive(true);
+				theGrid[player_y + 1][player_x].drawSelf(g);
+			}
+
 			else
 			{
 				theGrid[player_y - 1][player_x - 1].setIsLive(true);
@@ -454,6 +487,13 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					theGrid[player_y + 1][player_x].drawSelf(g);
 				theGrid[player_y + 1][player_x + 1].setIsLive(true);
 					theGrid[player_y + 1][player_x + 1].drawSelf(g);
+			}
+
+			if (player_y == 12 && player_x ==13)
+			{
+				System.out.println("afbjs");
+				g.setColor(Color.PINK);
+				g.drawString("You Win!", 301,291);
 			}
 
 			//System.out.println("is this always looping");
@@ -601,6 +641,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 
 			if (e.getKeyChar() == a)
 			{
+				if (theGrid[player_y][player_x-1] != null){
 				if (theGrid[player_y][player_x-1].getColorID() == 2)
 				{
 					return;
@@ -610,11 +651,12 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y, player_x - 1);
 					player_x -= 1;
-				}
+				}}
 			}
 
 			if (e.getKeyChar() == s)
 			{
+				if (theGrid[player_y+1][player_x] != null){
 				if (theGrid[player_y+1][player_x].getColorID() == 2)
 				{
 					return;
@@ -624,10 +666,11 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y + 1, player_x);
 					player_y += 1;
-				}
+				}}
 			}
 			if (e.getKeyChar() == d)
 			{
+				if (theGrid[player_y][player_x+1] != null){
 				if (theGrid[player_y][player_x+1].getColorID() == 2)
 				{
 					return;
@@ -637,7 +680,7 @@ public class GridDemoPanel extends JPanel implements MouseListener, KeyListener
 					playerLeaves(player_y, player_x);
 					playerArrives(player_y, player_x + 1);
 					player_x += 1;
-				}
+				}}
 			}
 		if (maze == 1)
 		{
